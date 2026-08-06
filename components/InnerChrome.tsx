@@ -91,18 +91,30 @@ export function InnerFooter() {
         <a className="footer-book" href={bookingUrl} target="_blank" rel="noreferrer">Book an appointment ↗</a>
       </div>
       <div>
-        <p className="footer-label">Explore</p>
-        <Link href="/meet-the-doctors">Meet the doctors</Link>
+        <p className="footer-label">Eye care</p>
+        <Link href="/care/comprehensive-eye-exams">Comprehensive eye exams</Link>
+        <Link href="/care/ocular-disease-management">Medical eye care</Link>
+        <Link href="/care/myopia-management">Myopia management</Link>
+        <Link href="/care/lasik-evaluations">LASIK evaluations</Link>
         <Link href="/services">All services</Link>
-        <Link href="/patient-resources">Patient center</Link>
-        <Link href="/contact">Contact & visit</Link>
       </div>
       <div>
         <p className="footer-label">Specialty care</p>
         <Link href="/dry-eye">Dry Eye Center</Link>
+        <Link href="/dry-eye-quiz">Dry Eye Quiz</Link>
+        <Link href="/care/optilight-ipl">OptiLight IPL</Link>
         <Link href="/specialty-contact-lenses">Specialty contact lenses</Link>
-        <Link href="/care/myopia-management">Myopia management</Link>
+        <Link href="/care/scleral-contact-lenses">Scleral lenses</Link>
+        <Link href="/aesthetics">Ocular aesthetics</Link>
+      </div>
+      <div>
+        <p className="footer-label">Resources &amp; practice</p>
+        <Link href="/our-practice">Our practice</Link>
+        <Link href="/meet-the-doctors">Meet the doctors</Link>
         <Link href="/eye-health">Eye health resources</Link>
+        <a href="https://www.cosmopolitaneyecare.com/blog.html" target="_blank" rel="noreferrer">Blog &amp; articles ↗</a>
+        <Link href="/patient-resources">Patient center</Link>
+        <Link href="/contact">Contact &amp; visit</Link>
       </div>
       <div>
         <p className="footer-label">Visit</p>
