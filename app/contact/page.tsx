@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InnerFooter, InnerHeader } from "../../components/InnerChrome";
+import { PageStructuredData } from "../../components/PageStructuredData";
 
 const bookingUrl = "https://www.lenscrafters.com/webapp/wcs/stores/servlet/ScheduleExamView?catalogId=11651&langId=-1&storeId=10851&storeNumber=3725";
 const mapsUrl = "https://maps.app.goo.gl/JCuUL9935ZF4yxYW8";
@@ -14,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <InnerHeader />
-      <main className="detail-page core-page contact-page">
+      <main className="detail-page core-page contact-page"><PageStructuredData name="Contact & Visit | Cosmopolitan Eyecare" description="Book an appointment, call Cosmopolitan Eyecare, or plan your visit to the Midtown Manhattan office." path="/contact" breadcrumb="Contact & Visit" />
         <section className="core-hero contact-hero" aria-labelledby="contact-title">
           <div className="contact-hero-copy">
             <p className="back-link">CONTACT &amp; VISIT</p>

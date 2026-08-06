@@ -5,6 +5,7 @@ import { HeroVideo } from "@/components/HeroVideo";
 import { SocialProofPanel } from "@/components/SocialProofStats";
 import { ProofAccordion } from "@/components/ProofAccordion";
 import { HomepageReviews } from "@/components/HomepageReviews";
+import { HomePageStructuredData } from "@/components/PracticeStructuredData";
 import { getHomepageContent } from "@/lib/sanity";
 
 const focusAreas = [
@@ -40,7 +41,7 @@ export default async function HomePage() {
   // An empty CMS field is intentional. Keep a fallback only while no Site Settings document is available.
   const practiceEmphasis = editableHomepage ? (editableHomepage.practiceEmphasis ?? "") : "time to be heard.";
   const content = editableHomepage ?? {};
-  return <main id="main-content">
+  return <main id="main-content"><HomePageStructuredData />
     <section className="hero">
       <HeroVideo />
       <SiteHeader mode="overlay" />

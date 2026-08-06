@@ -22,6 +22,7 @@ export function SpecialtyPathways({ links }: { links: readonly (readonly [string
 }
 
 export function SpecialtyPageStructuredData({ name, description, path }: { name: string; description: string; path: string }) {
-  const schema = { "@context": "https://schema.org", "@type": "MedicalWebPage", "@id": `${siteUrl}${path}#webpage`, url: `${siteUrl}${path}`, name, description, inLanguage: "en-US", mainEntity: { "@type": "Service", name, description, provider: { "@id": `${siteUrl}/#practice` } } };
+  const url = `${siteUrl}${path}`;
+  const schema = { "@context": "https://schema.org", "@graph": [{ "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`, itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name, item: url }] }, { "@type": "MedicalWebPage", "@id": `${url}#webpage`, url, name, description, inLanguage: "en-US", isPartOf: { "@id": `${siteUrl}/#website` }, about: { "@id": `${siteUrl}/#practice` }, breadcrumb: { "@id": `${url}#breadcrumb` }, mainEntity: { "@type": "Service", "@id": `${url}#service`, name, description, serviceType: name, provider: { "@id": `${siteUrl}/#practice` }, areaServed: { "@type": "City", name: "New York" } } }] };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
