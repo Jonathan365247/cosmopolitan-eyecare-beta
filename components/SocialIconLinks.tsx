@@ -14,6 +14,11 @@ const socialLinks = [
     href: "https://x.com/Cosmo_Eye",
     icon: <path d="M5 4l5.3 7.1L5 20h2.4l4-5.7 4.3 5.7H20l-5.6-7.5L19.3 4h-2.4l-3.6 5.2L9.4 4H5Zm3.4 1.8h.1l9 12.4h-1.8L6.8 5.8h1.6Z" fill="currentColor" stroke="none" />,
   },
+  {
+    label: "Google Maps",
+    href: "https://maps.app.goo.gl/JCuUL9935ZF4yxYW8",
+    icon: <><path d="M12 3a7 7 0 0 0-7 7c0 5.25 7 11 7 11s7-5.75 7-11a7 7 0 0 0-7-7Z" /><circle cx="12" cy="10" r="2.3" /></>,
+  },
 ] as const;
 
 export function SocialIconLinks({ className = "" }: { className?: string }) {

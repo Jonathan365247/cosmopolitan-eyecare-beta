@@ -16,9 +16,18 @@ export default function ContactPage() {
       <InnerHeader />
       <main className="detail-page core-page contact-page">
         <section className="core-hero contact-hero" aria-labelledby="contact-title">
-          <p className="back-link">CONTACT &amp; VISIT</p>
-          <h1 id="contact-title">Meet us in the <em>middle of it all.</em></h1>
-          <p className="detail-lede">Choose the easiest way to reach us. Our Midtown Manhattan team is ready to help you plan your next eye-care visit.</p>
+          <div className="contact-hero-copy">
+            <p className="back-link">CONTACT &amp; VISIT</p>
+            <h1 id="contact-title">Meet us in the <em>middle of it all.</em></h1>
+            <p className="detail-lede">Choose the easiest way to reach us. Our Midtown Manhattan team is ready to help you plan your next eye-care visit.</p>
+          </div>
+          <aside className="contact-hero-details" aria-label="Office hours and contact information">
+            <p className="section-label">PLAN YOUR VISIT</p>
+            <a href="tel:+12123024889" className="contact-hero-phone">(212) 302-4889</a>
+            <a href={mapsUrl} target="_blank" rel="noreferrer" className="contact-hero-address">1166 Avenue of the Americas<br />New York, NY 10036 ↗</a>
+            <div className="contact-hours"><p className="section-label">OFFICE HOURS</p><dl><div><dt>Monday</dt><dd>10:00am – 6:00pm</dd></div><div><dt>Tuesday</dt><dd>10:00am – 7:00pm</dd></div><div><dt>Wednesday</dt><dd>10:00am – 7:00pm</dd></div><div><dt>Thursday</dt><dd>10:00am – 6:00pm</dd></div><div><dt>Friday</dt><dd>10:00am – 6:00pm</dd></div><div><dt>Saturday</dt><dd>10:00am – 4:00pm</dd></div><div><dt>Sunday</dt><dd>10:00am – 4:00pm</dd></div></dl></div>
+            <a className="contact-hero-google" href={mapsUrl} target="_blank" rel="noreferrer">Find us on Google <span>↗</span></a>
+          </aside>
         </section>
 
         <section className="contact-actions" aria-labelledby="contact-actions-title">
@@ -39,6 +48,11 @@ export default function ContactPage() {
           </div>
         </section>
 
+        <section className="contact-map-section" aria-labelledby="contact-map-title">
+          <div><p className="section-label">FIND THE OFFICE</p><h2 id="contact-map-title">A Midtown location that fits your day.</h2><p>Steps from Rockefeller Center and easy to reach from throughout Manhattan.</p><a href={mapsUrl} target="_blank" rel="noreferrer">Open in Google Maps <span>↗</span></a></div>
+          <iframe src="https://www.google.com/maps?q=1166+Avenue+of+the+Americas,+New+York,+NY+10036&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Map to Cosmopolitan Eyecare" />
+        </section>
+
         <section className="contact-visit" aria-labelledby="visit-title">
           <div>
             <p className="section-label">PLAN YOUR VISIT</p>
@@ -52,10 +66,10 @@ export default function ContactPage() {
               <a href={mapsUrl} target="_blank" rel="noreferrer">Open directions ↗</a>
             </article>
             <article>
-              <p className="section-label">HOURS</p>
-              <h3>Here when you need us.</h3>
-              <p>Appointments are available seven days a week. Call the office for the current schedule and specialty-care availability.</p>
-              <a href="tel:+12123024889">Call (212) 302-4889</a>
+              <p className="section-label">GOOGLE</p>
+              <h3>Find us on the map.</h3>
+              <p>View the practice’s Google Maps profile for directions, the latest reviews, and location details.</p>
+              <a href={mapsUrl} target="_blank" rel="noreferrer">Open Google Maps ↗</a>
             </article>
             <article>
               <p className="section-label">PREPARE</p>
