@@ -11,7 +11,7 @@ const servicePaths = [
   "/care/scleral-contact-lenses", "/care/eye-infections",
   "/care/ocular-disease-management", "/care/diabetic-related-eye-exams", "/care/common-eye-disorders",
   "/care/eye-emergencies", "/care/lasik-evaluations", "/care/cataracts", "/care/macular-degeneration",
-  "/care/glaucoma", "/care/ocular-aesthetics",
+  "/care/glaucoma",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

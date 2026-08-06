@@ -4,7 +4,7 @@ import { SocialIconLinks } from "./SocialIconLinks";
 
 const careLinks = [
   ["Eye exams", "/care/comprehensive-eye-exams"],
-  ["Dry eye treatment", "/care/dry-eye-treatment"],
+  ["Dry eye treatment", "/dry-eye"],
   ["OptiLight IPL", "/care/optilight-ipl"],
   ["Specialty contact lenses", "/specialty-contact-lenses"],
   ["Scleral lenses", "/care/scleral-contact-lenses"],
