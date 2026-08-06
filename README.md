@@ -25,6 +25,10 @@ npm run dev
 4. Validate all clinical facts, insurance details, provider information, and legal copy before launch.
 5. **Required before the next deployment workflow:** re-run GitHub Actions QA successfully, or resolve the GitHub runner/setup failure from run `31114580698`. Do not rely on GitHub/Vercel automation until a successful remote QA run is confirmed.
 
+## Deployment workflow
+
+GitHub is the source of truth for application code. The Vercel project is connected to `Jonathan365247/cosmopolitan-eyecare-beta`, with `main` as its production branch. Pushes to `main` create production deployments automatically; pushes to other branches create review previews. A developer may use a local clone to author and test changes, but the running site is not dependent on a local computer.
+
 ## Validation
 
 Run the complete local release check with:
