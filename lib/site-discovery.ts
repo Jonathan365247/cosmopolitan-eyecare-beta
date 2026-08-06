@@ -45,6 +45,24 @@ const pages: PageDefinition[] = [
 
 const blockedPaths = ["/studio/"];
 
+// Keep the explicit AI-permissive policy in one place. Each named group gets
+// the same real path exclusion because a named group takes precedence over `*`.
+const aiPermissiveUserAgents = [
+  "OAI-SearchBot",
+  "GPTBot",
+  "ChatGPT-User",
+  "Googlebot",
+  "Google-Extended",
+  "ClaudeBot",
+  "Claude-User",
+  "Claude-SearchBot",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Amazonbot",
+  "Amzn-SearchBot",
+  "Amzn-User",
+] as const;
+
 function productionUrl(path: string) {
   return new URL(path, `${siteUrl}/`).toString();
 }
@@ -97,11 +115,30 @@ export function getProductionRobots(): MetadataRoute.Robots {
   assertProductionDiscoveryConfiguration();
 
   return {
-    // A single catch-all rule makes the public production site AI-permissive
-    // without scattering unverified crawler-specific user-agent policies.
-    rules: { userAgent: "*", allow: "/", disallow: blockedPaths },
+    rules: [
+      ...aiPermissiveUserAgents.map((userAgent) => ({ userAgent, allow: "/", disallow: blockedPaths })),
+      { userAgent: "*", allow: "/", disallow: blockedPaths },
+    ],
     sitemap: productionUrl("/sitemap.xml"),
   };
+}
+
+export function getBetaRobotsText() {
+  const groups = [
+    ...aiPermissiveUserAgents.map((userAgent) => ({ userAgent, allow: "/", disallow: blockedPaths })),
+    { userAgent: "*", allow: "/", disallow: blockedPaths },
+  ];
+
+  return [
+    "# Cosmopolitan Eyecare — Draft Review Environment",
+    "# Crawlers are welcome to fetch this review site. HTTP and page-level noindex directives prevent indexing until launch.",
+    ...groups.map((rule) => [
+      `User-agent: ${rule.userAgent}`,
+      `Allow: ${rule.allow}`,
+      ...rule.disallow.map((path) => `Disallow: ${path}`),
+    ].join("\n")),
+    `Sitemap: ${productionUrl("/sitemap.xml")}`,
+  ].join("\n\n");
 }
 
 export function getProductionLlmsText() {
