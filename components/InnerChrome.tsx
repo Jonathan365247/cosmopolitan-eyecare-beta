@@ -22,11 +22,11 @@ const bookingUrl = "https://www.lenscrafters.com/webapp/wcs/stores/servlet/Sched
 const mapsUrl = "https://maps.app.goo.gl/JCuUL9935ZF4yxYW8";
 const privacyUrl = "https://www.cosmopolitaneyecare.com/privacy-policy.html";
 
-export function InnerHeader() {
+export function SiteHeader({ mode = "light" }: { mode?: "light" | "overlay" }) {
   return (
-    <header className="inner-header">
+    <header className={`inner-header site-header site-header-${mode}`}>
       <Link className="inner-logo" href="/">
-        <Image src="/approved-assets/cosmopolitan-logo.png" alt="Cosmopolitan Eyecare" width={310} height={120} priority />
+        <Image src={mode === "overlay" ? "/approved-assets/cosmopolitan-logo-white.png" : "/approved-assets/cosmopolitan-logo.png"} alt="Cosmopolitan Eyecare" width={310} height={120} priority />
       </Link>
       <nav aria-label="Primary navigation">
         <details className="nav-menu">
@@ -78,6 +78,10 @@ export function InnerHeader() {
       </details>
     </header>
   );
+}
+
+export function InnerHeader() {
+  return <SiteHeader />;
 }
 
 export function InnerFooter() {

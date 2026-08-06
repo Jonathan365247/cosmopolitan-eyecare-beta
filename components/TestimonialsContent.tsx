@@ -7,8 +7,6 @@ const themes = [
   ["Thorough examinations", "Patients often mention careful exams and clinicians who take time to understand a concern.", "/care/comprehensive-eye-exams", "Explore comprehensive eye exams"],
   ["Clear explanations", "Reviews describe practical answers and a clearer understanding of the next step.", "/meet-the-doctors", "Meet the doctors"],
   ["Time to listen", "Several patients value a conversation that leaves room for questions and concerns.", "/our-practice", "Learn about the practice"],
-  ["Specialized support", "Selected reviews describe dry eye care and contact lens fittings when routine solutions have not been enough.", "/specialty-contact-lenses", "Explore specialty contact lenses"],
-  ["Midtown convenience", "Patients also mention a welcoming team and helpful support when eye-care needs feel time-sensitive.", "/contact", "Plan your visit"],
 ] as const;
 
 const careGroups = [
