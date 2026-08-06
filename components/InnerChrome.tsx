@@ -43,9 +43,8 @@ export function InnerHeader() {
         <Image src="/approved-assets/cosmopolitan-logo.png" alt="Cosmopolitan Eyecare" width={310} height={120} priority />
       </Link>
       <nav aria-label="Primary navigation">
-        <Link href="/our-practice">About</Link>
         <details className="nav-menu">
-          <summary>Eye care</summary>
+          <summary>Care</summary>
           <div className="nav-groups">
             <section><p>Everyday eye care</p>{primaryCareLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</section>
             <section><p>Focused care</p>{specialtyLinks.filter(([, href]) => href !== "/aesthetics").map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</section>
@@ -53,16 +52,26 @@ export function InnerHeader() {
           </div>
         </details>
         <details className="nav-menu">
-          <summary>Specialty care</summary>
+          <summary>Specialty programs</summary>
           <div className="nav-groups nav-groups-specialty">
             <section><p>Dry eye</p><Link href="/dry-eye">Dry Eye Center</Link><Link href="/dry-eye-quiz">Take the Dry Eye Quiz →</Link><Link href="/care/optilight-ipl">OptiLight IPL →</Link></section>
             <section><p>Specialty vision</p><Link href="/specialty-contact-lenses">Specialty contact lenses</Link><Link href="/care/scleral-contact-lenses">Scleral contact lenses</Link><Link href="/care/myopia-management">Myopia management →</Link></section>
           </div>
         </details>
-        <Link href="/eye-health">Resources</Link>
-        <a href="https://www.cosmopolitaneyecare.com/blog.html" target="_blank" rel="noreferrer">Blog ↗</a>
-        <Link href="/patient-resources">Patient center</Link>
-        <Link href="/contact">Contact</Link>
+        <details className="nav-menu">
+          <summary>Resources</summary>
+          <div className="nav-groups nav-groups-specialty">
+            <section><p>Learn</p><Link href="/eye-health">Eye health resources</Link><a href="https://www.cosmopolitaneyecare.com/blog.html" target="_blank" rel="noreferrer">Blog &amp; article archive ↗</a></section>
+            <section><p>Patients</p><Link href="/patient-resources">Patient center</Link><Link href="/contact">Contact &amp; visit →</Link></section>
+          </div>
+        </details>
+        <details className="nav-menu">
+          <summary>About &amp; visit</summary>
+          <div className="nav-groups nav-groups-specialty">
+            <section><p>Practice</p><Link href="/our-practice">Our practice</Link><Link href="/meet-the-doctors">Meet the doctors</Link><Link href="/testimonials">Patient stories</Link></section>
+            <section><p>Plan your visit</p><Link href="/contact">Contact &amp; directions</Link><Link href="/patient-resources">Forms, portal &amp; payments →</Link></section>
+          </div>
+        </details>
       </nav>
       <a className="inner-call" href={bookingUrl} target="_blank" rel="noreferrer">Book an appointment <span>↗</span></a>
       <details className="mobile-menu inner-mobile-menu">
