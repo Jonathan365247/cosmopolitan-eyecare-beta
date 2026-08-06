@@ -23,6 +23,7 @@ npm run dev
 2. Do not enable appointment delivery or the dry-eye assessment until recipients, consent language, and medical review are approved.
 3. Add only approved assets and record them in `docs/asset-provenance.md`.
 4. Validate all clinical facts, insurance details, provider information, and legal copy before launch.
+5. **Required before the next deployment workflow:** re-run GitHub Actions QA successfully, or resolve the GitHub runner/setup failure from run `31114580698`. Do not rely on GitHub/Vercel automation until a successful remote QA run is confirmed.
 
 ## Validation
 
