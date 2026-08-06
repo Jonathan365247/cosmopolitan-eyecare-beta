@@ -16,7 +16,7 @@ export default function DryEyeQuizPage() {
         <Link href="/dry-eye" className="back-link">← Dry Eye Center</Link>
         <p className="kicker">DRY EYE QUIZ</p>
         <h1>Start with what your eyes are <em>telling you.</em></h1>
-        <p className="detail-lede">This is Cosmopolitan Eyecare&apos;s current approved Dry Eye Quiz, presented here so you can begin without leaving the beta site.</p>
+      <p className="detail-lede">Answer a few quick questions to help identify common dry eye symptoms and decide whether a consultation may be a helpful next step.</p>
       </section>
       <section className="quiz-frame" aria-label="Cosmopolitan Eyecare Dry Eye Quiz">
         <iframe src="https://uexv7fq5lfc.typeform.com/to/K2A1tFfR" title="Cosmopolitan Eyecare Dry Eye Quiz" loading="lazy" />
