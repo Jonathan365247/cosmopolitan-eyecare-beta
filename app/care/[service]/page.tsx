@@ -63,7 +63,7 @@ const serviceGuidance: Record<(typeof services)[number], { rightFor: string; pre
 };
 
 export const dynamicParams = false;
-export function generateStaticParams() { return services.map((service) => ({ service: slug(service) })); }
+export function generateStaticParams() { return services.filter((service) => service !== "Myopia management").map((service) => ({ service: slug(service) })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ service: string }> }): Promise<Metadata> {
   const { service } = await params;
