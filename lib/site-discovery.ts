@@ -47,6 +47,13 @@ function productionUrl(path: string) {
   return new URL(path, `${siteUrl}/`).toString();
 }
 
+function pageListFor(baseUrl: string, includeAllPages = false) {
+  return pages
+    .filter(({ includeInLlms }) => includeAllPages || includeInLlms)
+    .map(({ path, title, description }) => `- [${title}](${new URL(path, `${baseUrl}/`).toString()}): ${description}`)
+    .join("\n");
+}
+
 function assertProductionDiscoveryConfiguration() {
   const canonical = new URL(siteUrl);
   const blockedHosts = ["localhost", "127.0.0.1", "::1"];
@@ -85,10 +92,7 @@ export function getProductionRobots(): MetadataRoute.Robots {
 
 export function getProductionLlmsText() {
   assertProductionDiscoveryConfiguration();
-  const priorityPages = pages.filter(({ includeInLlms }) => includeInLlms);
-  const pageList = priorityPages
-    .map(({ path, title, description }) => `- [${title}](${productionUrl(path)}): ${description}`)
-    .join("\n");
+  const pageList = pageListFor(siteUrl);
 
   return `# Cosmopolitan Eyecare
 
@@ -108,5 +112,34 @@ ${pageList}
 - Eye-health and service content is general education and does not replace personal medical advice, diagnosis, or emergency care.
 - Testimonials describe individual patient experiences and should not be treated as clinical claims or expected outcomes.
 - For urgent eye concerns, contact the practice promptly. For a life-threatening emergency, call 911.
+`;
+}
+
+/**
+ * The beta exposes a complete, readable site guide for review tools without
+ * making the preview indexable. Robots and HTTP metadata remain noindex.
+ */
+export function getBetaLlmsText() {
+  const pageList = pageListFor(siteUrl, true);
+
+  return `# Cosmopolitan Eyecare — Review Beta
+
+> This is a private-review beta for Cosmopolitan Eyecare, a Midtown Manhattan optometry practice. It is deliberately blocked from indexing and must not be treated as the public launch site or a canonical source for search discovery.
+
+## Practice
+- **Name:** Cosmopolitan Eyecare
+- **Type:** Optometry practice
+- **Location:** 1166 Avenue of the Americas, New York, NY 10036
+- **Phone:** +1-212-302-4889
+- **Review site:** ${productionUrl("/")}
+
+## Review-page inventory
+${pageList}
+
+## Reading notes
+- The care and eye-health pages provide general education; they do not replace individual medical advice, diagnosis, or emergency care.
+- Testimonials describe individual experiences and are not clinical claims or guarantees of outcome.
+- This beta preserves noindex controls while allowing direct review of its information architecture, content, and structured-data implementation.
+- Do not cite this preview URL as the public practice website. The final production domain and launch metadata will be supplied at launch.
 `;
 }
