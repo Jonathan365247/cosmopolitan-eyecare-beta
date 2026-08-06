@@ -42,7 +42,7 @@ export default function ContactPage() {
             <a className="contact-action contact-action-call" href="tel:+12123024889">
               <span>02</span><strong>Call the practice</strong><p>(212) 302-4889</p><b aria-hidden="true">→</b>
             </a>
-            <a className="contact-action" href={mapsUrl} target="_blank" rel="noreferrer">
+            <a className="contact-action contact-action-directions" href={mapsUrl} target="_blank" rel="noreferrer">
               <span>03</span><strong>Get directions</strong><p>1166 Avenue of the Americas</p><b aria-hidden="true">↗</b>
             </a>
           </div>
