@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { InnerFooter, InnerHeader } from "../../components/InnerChrome";
 import { FaqSection } from "../../components/FaqSection";
 import { SpecialtyDepth, SpecialtyPageStructuredData, SpecialtyPathways } from "../../components/SpecialtyPageSupport";
@@ -29,6 +30,7 @@ export default function DryEyePage() {
           <li><span>03</span><div><h3>Choose a next step</h3><p>Move forward with a plan that makes sense for you.</p></div></li>
         </ol>
       </section>
+      <figure className="service-story-image"><Image src="/approved-assets/dry-eye-care-context.png" alt="A clinician reviewing eye-comfort questions during a dry eye consultation." width={1536} height={1024} /><figcaption>A focused dry-eye conversation begins with the details of your experience.</figcaption></figure>
       <section className="dry-eye-actions">
         <p className="section-label">START HERE</p>
         <h2>Get a clearer sense of your next step.</h2>
