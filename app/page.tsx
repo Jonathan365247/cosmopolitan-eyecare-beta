@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { InnerFooter } from "@/components/InnerChrome";
 import { HeroVideo } from "@/components/HeroVideo";
-import { SocialProofStats } from "@/components/SocialProofStats";
+import { SocialProofPanel } from "@/components/SocialProofStats";
 
 const focusAreas = [
   { number: "01", title: "Comprehensive eye exams", text: "A full picture of everyday vision, eye health, and the questions that matter to you.", href: "/care/comprehensive-eye-exams" },
@@ -41,12 +41,10 @@ export default function HomePage() {
         <p className="hero-note">1166 Avenue of the Americas · New York, NY</p>
       </section>
 
-      <section id="practice" className="statement section-pad">
-        <p className="section-label">THE PRACTICE</p>
-        <div className="statement-headline"><h2>Care that sees the <em>whole picture.</em></h2></div><div className="statement-story"><p>Cosmopolitan Eyecare brings comprehensive optometry and a more specialized point of view under one roof. We listen closely, explain clearly, and create care plans that meet you where you are.</p><figure className="practice-photo"><Image src="/approved-assets/cosmopolitan-welcome.png" alt="The Cosmopolitan Eyecare practice reception" width={557} height={350} priority /><figcaption>Cosmopolitan Eyecare · Midtown Manhattan</figcaption></figure></div><aside className="practice-note"><p className="section-label">WHY COSMOPOLITAN</p><h3>Built for the pace of <em>Midtown.</em></h3><p>Full-scope eye care, dry eye conversations, specialty contact lens expertise, and a clear path forward—close to where New York works and moves.</p><ul><li>Thoughtful, full-scope care</li><li>Specialty lens experience</li><li>Open seven days a week</li></ul><Link href="/our-practice">Explore the practice <span>→</span></Link></aside>
+      <section id="practice" className="practice-credibility section-pad">
+        <div className="practice-credibility-copy"><p className="section-label">A DIFFERENT KIND OF EYE CARE</p><h2>Thoughtful care, advanced treatment, and <em>time to be heard.</em></h2><p>From comprehensive eye exams to complex dry eye and specialty lens care, our doctors take a thorough, personal approach to every visit. We combine modern diagnostics with clear explanations and recommendations shaped around your daily life.</p><Link className="practice-credibility-link" href="/meet-the-doctors">Meet our doctors <span>→</span></Link></div>
+        <SocialProofPanel />
       </section>
-
-      <SocialProofStats />
 
       <section id="care" className="focus section-pad">
         <div className="section-intro"><div><p className="section-label">EYE CARE SERVICES</p><h2>Find your place to <em>begin.</em></h2></div><p>Start with what brings you in. These are Cosmopolitan’s core care pathways, with deeper guidance available for each service.</p></div>
