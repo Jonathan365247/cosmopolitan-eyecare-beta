@@ -22,7 +22,6 @@ const practiceSchema = {
       ],
       hasMap: "https://maps.app.goo.gl/JCuUL9935ZF4yxYW8",
       contactPoint: [{ "@type": "ContactPoint", telephone: "+1-212-302-4889", contactType: "appointments and patient inquiries", areaServed: "US", availableLanguage: "en" }],
-      availableService: ["Comprehensive eye exams", "Dry eye care", "Specialty contact lenses", "Myopia management", "Medical eye care", "Ocular aesthetics"].map((name) => ({ "@type": "Service", name, provider: { "@id": `${siteUrl}/#practice` } })),
       sameAs: [
         "https://www.instagram.com/cosmopolitaneyecare/",
         "https://www.facebook.com/Cosmopolitan.Eyecare.NY",
