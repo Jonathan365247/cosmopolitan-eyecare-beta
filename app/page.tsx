@@ -5,6 +5,7 @@ import { HeroVideo } from "@/components/HeroVideo";
 import { SocialProofPanel } from "@/components/SocialProofStats";
 import { ProofAccordion } from "@/components/ProofAccordion";
 import { HomepageReviews } from "@/components/HomepageReviews";
+import { getHomepageContent } from "@/lib/sanity";
 
 const focusAreas = [
   { number: "01", title: "Comprehensive eye exams", text: "A full picture of everyday vision, eye health, and the questions that matter to you.", href: "/care/comprehensive-eye-exams" },
@@ -23,12 +24,17 @@ const doctors = [
   { name: "Dr. Serena Lu", image: "/approved-assets/dr-lu.png" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const editableHomepage = await getHomepageContent();
+  const heroEyebrow = editableHomepage?.heroEyebrow ?? "Midtown Manhattan";
+  const heroTitle = editableHomepage?.heroTitle ?? "See better.";
+  const heroEmphasis = editableHomepage?.heroEmphasis ?? "Look good.";
+  const heroLede = editableHomepage?.heroLede ?? "Personalized eye care, dry eye treatment, specialty contact lenses, and ocular aesthetics—right in the heart of New York City.";
   return <main id="main-content">
     <section className="hero">
       <HeroVideo />
       <SiteHeader mode="overlay" />
-      <div className="hero-copy"><p className="kicker">Midtown Manhattan</p><h1>See better.<br /><em>Look good.</em></h1><p className="lede">Personalized eye care, dry eye treatment, specialty contact lenses, and ocular aesthetics—right in the heart of New York City.</p><Link className="text-link hero-care-link" href="/services">Explore our care <span>→</span></Link></div>
+      <div className="hero-copy"><p className="kicker">{heroEyebrow}</p><h1>{heroTitle}<br /><em>{heroEmphasis}</em></h1><p className="lede">{heroLede}</p><Link className="text-link hero-care-link" href="/services">Explore our care <span>→</span></Link></div>
       <p className="hero-note">1166 Avenue of the Americas · New York, NY</p>
     </section>
     <section id="practice" className="practice-credibility section-pad"><div className="practice-credibility-copy"><p className="section-label">MORE TIME. CLEARER ANSWERS.</p><h2>Advanced eye care, with <em>time to be heard.</em></h2><p>From comprehensive eye exams to complex dry eye and specialty lens care, our doctors take a thorough, personal approach to every visit. We combine modern diagnostics with clear explanations and recommendations shaped around your daily life.</p></div><SocialProofPanel /></section>
