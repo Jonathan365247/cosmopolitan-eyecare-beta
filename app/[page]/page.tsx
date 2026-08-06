@@ -73,7 +73,7 @@ const team = [
   { name: "Dr. Serena Lu", image: "/approved-assets/dr-lu.png", focus: "Dry eye · myopia management · preventive vision care", bio: "A board-certified optometrist and native New Yorker, Dr. Lu earned her Doctorate of Optometry from SUNY College of Optometry. She is especially interested in dry eye care, myopia management, contact lenses, and preventive vision care—and in making sure each patient feels heard and informed." },
 ] as const;
 const patientTools = [
-  { title: "Patient portal", description: "Secure access to the current patient portal.", href: "https://www.crystalpm.com/PatientPortal.jsp?crystalpmid=2054", external: true },
+  { title: "Patient portal", description: "Access the current patient portal.", href: "https://www.crystalpm.com/PatientPortal.jsp?crystalpmid=2054", external: true },
   { title: "Online forms", description: "Access current new-patient, release, and background-information forms before your visit.", href: "https://www.cosmopolitaneyecare.com/patient-forms.html", external: true },
   { title: "Insurance & payments", description: "Review current payment options and how vision insurance differs from medical insurance.", href: "https://www.cosmopolitaneyecare.com/payment-options.html", external: true },
   { title: "Doctor referrals", description: "Use the current referral destination for referring providers and patients.", href: "https://www.cosmopolitaneyecare.com/doctor-referrals.html", external: true },
