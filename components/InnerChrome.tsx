@@ -21,7 +21,6 @@ const specialtyLinks = [
 const bookingUrl = "https://www.lenscrafters.com/webapp/wcs/stores/servlet/ScheduleExamView?catalogId=11651&langId=-1&storeId=10851&storeNumber=3725";
 const mapsUrl = "https://maps.app.goo.gl/JCuUL9935ZF4yxYW8";
 const privacyUrl = "https://www.cosmopolitaneyecare.com/privacy-policy.html";
-const accessibilityUrl = "https://www.cosmopolitaneyecare.com/accessibility-statement.html";
 
 export function InnerHeader() {
   return (
@@ -114,7 +113,7 @@ export function InnerFooter() {
         <SocialIconLinks />
         <p className="footer-label footer-social-label">Policies</p>
         <a href={privacyUrl} target="_blank" rel="noreferrer">Privacy policy ↗</a>
-        <a href={accessibilityUrl} target="_blank" rel="noreferrer">Accessibility statement ↗</a>
+        <Link href="/accessibility">Accessibility statement</Link>
       </div>
       <p className="footer-note">Private beta preview · Booking and patient resources open on their current destinations.</p>
     </footer>

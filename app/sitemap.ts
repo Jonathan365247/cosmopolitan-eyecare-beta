@@ -3,7 +3,7 @@ import { isIndexable, siteUrl } from "../lib/site-config";
 
 const corePaths = [
   "", "/our-practice", "/meet-the-doctors", "/services", "/dry-eye", "/aesthetics",
-  "/specialty-contact-lenses", "/patient-resources", "/contact", "/testimonials", "/eye-health",
+  "/specialty-contact-lenses", "/patient-resources", "/contact", "/testimonials", "/eye-health", "/accessibility",
 ];
 const servicePaths = [
   "/care/comprehensive-eye-exams", "/care/myopia-management", "/care/computer-vision", "/care/seasonal-allergies",
