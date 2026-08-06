@@ -1,6 +1,6 @@
-# Website Beta Foundation
+# Cosmopolitan Eyecare — Website Beta
 
-An independent, noindex, static-first foundation for a non-real-estate website beta.
+A noindex, static-first preview for Cosmopolitan Eyecare in Midtown Manhattan. The first checkpoint includes an original homepage and three priority care pathways: Dry Eye Center, Ocular Aesthetics, and Specialty Contact Lenses.
 
 ## Start
 
@@ -9,9 +9,9 @@ npm install
 npm run dev
 ```
 
-## Before the first client-specific build
+## Preview safeguards
 
-1. Rename the package and replace the placeholder metadata.
-2. Complete `docs/beta-charter.md` with the project facts.
+1. Keep the preview protected and noindex.
+2. Do not enable appointment delivery or the dry-eye assessment until recipients, consent language, and medical review are approved.
 3. Add only approved assets and record them in `docs/asset-provenance.md`.
-4. Create a separate GitHub repository and a separate protected Vercel project.
+4. Validate all clinical facts, insurance details, provider information, and legal copy before launch.
