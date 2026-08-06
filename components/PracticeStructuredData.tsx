@@ -2,9 +2,10 @@ const practiceSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Optician",
+      "@type": "MedicalBusiness",
       "@id": "https://www.cosmopolitaneyecare.com/#practice",
       name: "Cosmopolitan Eyecare",
+      medicalSpecialty: "Optometric",
       url: "https://www.cosmopolitaneyecare.com/",
       telephone: "+1-212-302-4889",
       faxNumber: "+1-212-504-8257",

@@ -101,7 +101,7 @@ export function InnerFooter() {
         <a href={privacyUrl} target="_blank" rel="noreferrer">Privacy policy ↗</a>
         <a href={accessibilityUrl} target="_blank" rel="noreferrer">Accessibility statement ↗</a>
       </div>
-      <p className="footer-note">Private beta preview · Booking and patient resources open on the current secure destinations.</p>
+      <p className="footer-note">Private beta preview · Booking and patient resources open on their current destinations.</p>
     </footer>
   );
 }
