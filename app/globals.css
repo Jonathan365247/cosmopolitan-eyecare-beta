@@ -120,3 +120,5 @@
 .review-note h2{max-width:18ch}
 .review-note div>p+p{margin-top:1rem}
 @media(max-width:760px){.review-card-featured{min-height:0;padding:1.65rem}.review-card-featured blockquote{font-size:1.75rem}.review-card-footer{align-items:flex-start;flex-direction:column;gap:.75rem;padding-top:1.3rem}.review-source-link{white-space:normal}.review-supporting .review-card-footer{grid-column:auto}.doctor-feedback h2{white-space:normal}}
+/* Homepage overlay navigation always uses the light treatment. */
+.site-header-overlay nav,.site-header-overlay nav summary,.site-header-overlay .inner-call{color:#fff!important}
