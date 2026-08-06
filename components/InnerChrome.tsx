@@ -15,6 +15,22 @@ const careLinks = [
   ["Ocular aesthetics", "/aesthetics"],
 ] as const;
 
+const primaryCareLinks = [
+  ["Comprehensive eye exams", "/care/comprehensive-eye-exams"],
+  ["Medical eye care", "/care/ocular-disease-management"],
+  ["Myopia management", "/care/myopia-management"],
+  ["LASIK evaluations", "/care/lasik-evaluations"],
+] as const;
+
+const specialtyLinks = [
+  ["Dry Eye Center", "/dry-eye"],
+  ["Take the Dry Eye Quiz", "/dry-eye-quiz"],
+  ["Specialty contact lenses", "/specialty-contact-lenses"],
+  ["Scleral lenses", "/care/scleral-contact-lenses"],
+  ["OptiLight IPL", "/care/optilight-ipl"],
+  ["Ocular aesthetics", "/aesthetics"],
+] as const;
+
 const bookingUrl = "https://www.lenscrafters.com/webapp/wcs/stores/servlet/ScheduleExamView?catalogId=11651&langId=-1&storeId=10851&storeNumber=3725";
 const mapsUrl = "https://maps.app.goo.gl/JCuUL9935ZF4yxYW8";
 const privacyUrl = "https://www.cosmopolitaneyecare.com/privacy-policy.html";
@@ -30,15 +46,22 @@ export function InnerHeader() {
         <Link href="/our-practice">About</Link>
         <details className="nav-menu">
           <summary>Eye care</summary>
-          <div>
-            {careLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
-            <Link href="/services">View all services →</Link>
+          <div className="nav-groups">
+            <section><p>Everyday eye care</p>{primaryCareLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</section>
+            <section><p>Focused care</p>{specialtyLinks.filter(([, href]) => href !== "/aesthetics").map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</section>
+            <section><p>Complete care guide</p><Link href="/services">Explore all services →</Link><Link href="/aesthetics">Ocular aesthetics →</Link></section>
           </div>
         </details>
-        <Link href="/dry-eye">Dry Eye Center</Link>
-        <Link href="/aesthetics">Aesthetics</Link>
+        <details className="nav-menu">
+          <summary>Specialty care</summary>
+          <div className="nav-groups nav-groups-specialty">
+            <section><p>Dry eye</p><Link href="/dry-eye">Dry Eye Center</Link><Link href="/dry-eye-quiz">Take the Dry Eye Quiz →</Link><Link href="/care/optilight-ipl">OptiLight IPL →</Link></section>
+            <section><p>Specialty vision</p><Link href="/specialty-contact-lenses">Specialty contact lenses</Link><Link href="/care/scleral-contact-lenses">Scleral contact lenses</Link><Link href="/care/myopia-management">Myopia management →</Link></section>
+          </div>
+        </details>
         <Link href="/eye-health">Resources</Link>
         <Link href="/patient-resources">Patient center</Link>
+        <Link href="/contact">Contact</Link>
       </nav>
       <a className="inner-call" href={bookingUrl} target="_blank" rel="noreferrer">Book an appointment <span>↗</span></a>
       <details className="mobile-menu inner-mobile-menu">
@@ -46,9 +69,10 @@ export function InnerHeader() {
         <div>
           <Link href="/our-practice">About Cosmopolitan</Link>
           <Link href="/services">All eye care services</Link>
-          {careLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
-          <Link href="/dry-eye">Dry Eye Center</Link>
-          <Link href="/aesthetics">Ocular aesthetics</Link>
+          <p className="mobile-menu-label">Everyday eye care</p>
+          {primaryCareLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
+          <p className="mobile-menu-label">Specialty care</p>
+          {specialtyLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
           <Link href="/eye-health">Eye health resources</Link>
           <Link href="/patient-resources">Patient center</Link>
           <Link href="/contact">Contact & visit</Link>
