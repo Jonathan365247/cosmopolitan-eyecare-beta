@@ -104,6 +104,12 @@
 .homepage-featured-reviews figcaption{font-size:.94rem!important}
 .homepage-featured-reviews small{font-size:.82rem!important}
 @media(max-width:760px){.homepage-reviews{padding-block:3rem!important}.homepage-featured-reviews figure{padding:1.5rem!important}.homepage-featured-reviews blockquote{margin:1.35rem 0!important;font-size:1.55rem!important;line-height:1.42!important}}
+
+/* Keep all care-page sections aligned to the same content measure as their hero. */
+.service-page .steps,.service-page .faq-section,.detail-page:has(.specialty-hero) .steps,.detail-page:has(.specialty-hero) .quote,.detail-page:has(.specialty-hero) .faq-section,.detail-page:has(.specialty-hero) .specialty-pathways,.detail-page:has(.specialty-hero) .service-story-image,.detail-page:has(.specialty-hero) .dry-eye-actions{max-width:none}
+.service-page .steps li,.detail-page:has(.specialty-hero) .steps li{grid-template-columns:minmax(6rem,.25fr) minmax(0,1.15fr)}
+.service-page .steps li>div,.detail-page:has(.specialty-hero) .steps li>div{max-width:60rem}
+.detail-page:has(.specialty-hero) .faq-section p{max-width:52rem}
 /* Final testimonials page tightening. Keep these last so the page-specific desktop rules win. */
 .review-source-stats article:last-child{background:rgba(5,27,53,.38)!important}
 .review-card-featured{display:flex;flex-direction:column;min-height:0;padding:clamp(1.8rem,3vw,2.8rem)}
