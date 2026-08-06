@@ -90,7 +90,7 @@ const testimonials = [
   { quote: "I appreciated that the doctor actually listened to my concerns about my eyes.", name: "Leona F." },
 ] as const;
 
-export function generateStaticParams() { return Object.keys(pages).map((page) => ({ page })); }
+export function generateStaticParams() { return Object.keys(pages).filter((page) => page !== "contact").map((page) => ({ page })); }
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ page: keyof typeof pages }> }): Promise<Metadata> {
