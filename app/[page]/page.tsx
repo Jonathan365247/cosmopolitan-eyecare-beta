@@ -85,9 +85,9 @@ const pageAccents: Partial<Record<keyof typeof pages, { word: string }>> = {
   contact: { word: "Midtown" },
 };
 const testimonials = [
-  { quote: "The doctors are very personable and understanding. They take their time evaluating your condition.", name: "Asia A." },
-  { quote: "The entire team was so caring and personable. Super easy, and treated so well.", name: "Sydney C." },
-  { quote: "I appreciated that the doctor actually listened to my concerns about my eyes.", name: "Leona F." },
+  { quote: "The doctors are very personable and understanding. They take their time evaluating your condition.", name: "Asia Aziz", source: "Google review" },
+  { quote: "Dr. Chan went above and beyond to be informative and detailed with my fitting.", name: "Yiwa ‘Kiwi’ Wang", source: "Google review" },
+  { quote: "Dr. Chaudri was friendly, thorough, informative and took time to answer all my questions.", name: "Mark Wuillamey", source: "Google review" },
 ] as const;
 
 export function generateStaticParams() { return Object.keys(pages).filter((page) => page !== "contact").map((page) => ({ page })); }

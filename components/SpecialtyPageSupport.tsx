@@ -4,10 +4,15 @@ import { siteUrl } from "../lib/site-config";
 
 type Topic = { label: string; title: string; copy: string };
 
+const serviceReviews: Record<string, { quote: string; author: string; placement: "left" | "right" }> = {
+  "/approved-assets/specialty-lenses-feature.png": { quote: "I am absolutely thrilled with the results of my scleral lenses.", author: "S. M. · Google review", placement: "right" },
+};
+
 export function SpecialtyDepth({ label, title, intro, topics, image, imageAlt }: { label: string; title: string; intro: string; topics: Topic[]; image?: string; imageAlt?: string }) {
+  const review = image ? serviceReviews[image] : undefined;
   return <section className="specialty-depth" aria-labelledby={`${label}-depth`}>
     <div className="specialty-depth-intro"><p className="section-label">{label}</p><div><h2 id={`${label}-depth`}>{title}</h2><p>{intro}</p></div></div>
-    {image && <figure className="specialty-feature-image"><Image src={image} alt={imageAlt ?? ""} fill sizes="(max-width: 900px) 100vw, 1400px" /></figure>}
+    {image && <figure className={`specialty-feature-image ${review ? `specialty-feature-review ${review.placement}` : ""}`}><Image src={image} alt={imageAlt ?? ""} fill sizes="(max-width: 900px) 100vw, 1400px" />{review && <figcaption><span>Patient review · Google</span><blockquote>“{review.quote}”</blockquote><p>— {review.author}</p></figcaption>}</figure>}
     <div className="specialty-depth-grid">{topics.map((topic) => <article key={topic.title}><span>{topic.label}</span><h3>{topic.title}</h3><p>{topic.copy}</p></article>)}</div>
   </section>;
 }
