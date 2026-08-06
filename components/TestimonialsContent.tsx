@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { patientExperiences } from "@/content/patient-experiences";
+import { testimonials } from "@/content/testimonials";
 import { socialProof } from "@/content/social-proof";
 
 const themes = [
@@ -12,26 +12,25 @@ const themes = [
 ] as const;
 
 const careGroups = [
-  ["Comprehensive eye exams", "For patients looking for a thorough visit and time for questions.", "/care/comprehensive-eye-exams", ["asia-exam", "mark-exam"]],
-  ["Specialty contact lenses", "For patients who need detailed fitting support and a more tailored lens plan.", "/specialty-contact-lenses", ["sm-scleral", "yiwa-lenses"]],
-  ["Dry eye care", "For patients exploring focused care for persistent dry eye symptoms.", "/dry-eye", ["william-dry-eye"]],
-  ["Medical eye care", "For patients seeking help with an eye concern that needs clinical attention.", "/care/ocular-disease-management", ["sherily-medical"]],
+  ["Comprehensive eye exams", "For patients looking for a thorough visit and time for questions.", "/care/comprehensive-eye-exams"],
+  ["Specialty contact lenses", "For patients who need detailed fitting support and a more tailored lens plan.", "/specialty-contact-lenses"],
+  ["Dry eye care", "For patients exploring focused care for persistent dry eye symptoms.", "/dry-eye"],
+  ["Medical eye care", "For patients seeking help with an eye concern that needs clinical attention.", "/care/ocular-disease-management"],
 ] as const;
 
-function ExperienceCard({ experience, featured = false }: { experience: (typeof patientExperiences)[number]; featured?: boolean }) {
+function ExperienceCard({ experience, featured = false }: { experience: (typeof testimonials)[number]; featured?: boolean }) {
   return <figure className={featured ? "review-card review-card-featured" : "review-card"}>
-    <p className="review-card-service"><Link href={experience.serviceHref}>{experience.service}</Link></p>
-    <blockquote>“{experience.excerpt}”</blockquote>
-    <figcaption>{experience.reviewerDisplayName}<small>{experience.platform} review{experience.reviewDate ? ` · ${experience.reviewDate}` : ""}</small>{experience.excerptWasShortened ? <em>Excerpt shortened for length.</em> : null}</figcaption>
-    <a className="review-source-link" href={experience.sourceUrl} target="_blank" rel="noopener noreferrer">Read more on {experience.platform} <span aria-hidden="true">↗</span></a>
+    <p className="review-card-service"><Link href={experience.serviceHref}>{experience.category}</Link></p>
+    <blockquote>“{experience.approvedExcerpt}”</blockquote>
+    <figcaption>{experience.patientDisplayName}<small>{experience.verifiedPatient ? "Verified patient · " : ""}{experience.sourcePlatform} · {experience.sourceDate}</small></figcaption>
+    <a className="review-source-link" href={experience.sourceUrl} target="_blank" rel="noopener noreferrer">Read more on {experience.sourcePlatform} <span aria-hidden="true">↗</span></a>
   </figure>;
 }
 
 export function TestimonialsContent() {
-  const featured = patientExperiences.filter((experience) => experience.featured);
-  const supporting = patientExperiences.filter((experience) => !experience.featured).slice(0, 6);
-  const byId = new Map(patientExperiences.map((experience) => [experience.id, experience]));
-  const deebaReview = byId.get("mark-exam");
+  const featured = testimonials.filter((experience) => experience.homepage && experience.featured);
+  const supporting = testimonials.filter((experience) => experience.homepage && !experience.featured);
+  const deebaReview = testimonials.find((experience) => experience.id === "ruby-provider-listening");
   const { practice, google, deebaChaudri } = socialProof;
 
   return <>
@@ -40,8 +39,8 @@ export function TestimonialsContent() {
     <section className="review-themes"><p className="section-label">WHAT PATIENTS MENTION MOST</p><div>{themes.map(([title, copy, href, label]) => <article key={title}><h3>{title}</h3><p>{copy}</p><Link href={href}>{label} <span aria-hidden="true">→</span></Link></article>)}</div></section>
     <section className="review-featured"><p className="section-label">FEATURED PATIENT STORIES</p><div>{featured.map((experience) => <ExperienceCard key={experience.id} experience={experience} featured />)}</div></section>
     <section className="review-supporting"><p className="section-label">MORE PATIENT PERSPECTIVES</p><div>{supporting.map((experience) => <ExperienceCard key={experience.id} experience={experience} />)}</div></section>
-    <section className="review-care-groups"><p className="section-label">EXPERIENCES BY TYPE OF CARE</p><div>{careGroups.map(([title, copy, href, ids]) => <article key={title}><h2>{title}</h2><p>{copy}</p><ul>{ids.map((id) => { const experience = byId.get(id); return experience ? <li key={id}>“{experience.excerpt}” <span>— {experience.reviewerDisplayName}</span></li> : null; })}</ul><Link href={href}>Learn about {title.toLowerCase()} <span aria-hidden="true">→</span></Link></article>)}</div></section>
-    {deebaChaudri.enabled && deebaReview ? <section className="doctor-feedback" aria-labelledby="doctor-feedback-heading"><p className="section-label">PATIENT FEEDBACK ABOUT OUR DOCTORS</p><div><div className="doctor-feedback-portrait"><Image src="/approved-assets/dr-chaudri.png" alt="Dr. Deeba Chaudri" fill sizes="(max-width: 760px) 100vw, 22rem" /></div><div className="doctor-feedback-copy"><h2 id="doctor-feedback-heading">Dr. Deeba Chaudri, <em>OD</em></h2><p>Patients who mention Dr. Chaudri often speak to her thorough approach, clear communication, and time for questions.</p><div className="doctor-feedback-stats"><article><strong>{deebaChaudri.displayValues.reviewCount}</strong><span>Verified patient reviews</span></article><article><strong>{deebaChaudri.displayValues.rating}</strong><span>Patient rating</span></article><article><strong>{deebaChaudri.displayValues.fiveStarPercentage}</strong><span>Five-star ratings</span></article></div><blockquote>“{deebaReview.excerpt}”<cite>— {deebaReview.reviewerDisplayName}, Google review</cite></blockquote><div className="doctor-feedback-links"><Link href="/meet-the-doctors">Meet the doctors <span aria-hidden="true">→</span></Link><a href={deebaChaudri.sourceUrl} target="_blank" rel="noopener noreferrer">Dr. Chaudri on Zocdoc <span aria-hidden="true">↗</span></a></div><p className="doctor-feedback-note">These figures apply to Dr. Chaudri’s individual Zocdoc profile.</p></div></div></section> : null}
+    <section className="review-care-groups"><p className="section-label">EXPLORE CARE PATHWAYS</p><div>{careGroups.map(([title, copy, href]) => <article key={title}><h2>{title}</h2><p>{copy}</p><Link href={href}>Learn about {title.toLowerCase()} <span aria-hidden="true">→</span></Link></article>)}</div></section>
+    {deebaChaudri.enabled && deebaReview ? <section className="doctor-feedback" aria-labelledby="doctor-feedback-heading"><p className="section-label">PATIENT FEEDBACK ABOUT OUR DOCTORS</p><div><div className="doctor-feedback-portrait"><Image src="/approved-assets/dr-chaudri.png" alt="Dr. Deeba Chaudri" fill sizes="(max-width: 760px) 100vw, 22rem" /></div><div className="doctor-feedback-copy"><h2 id="doctor-feedback-heading">Dr. Deeba Chaudri, <em>OD</em></h2><p>Patients who mention Dr. Chaudri often speak to her thorough approach, clear communication, and time for questions.</p><div className="doctor-feedback-stats"><article><strong>{deebaChaudri.displayValues.reviewCount}</strong><span>Verified patient reviews</span></article><article><strong>{deebaChaudri.displayValues.rating}</strong><span>Patient rating</span></article><article><strong>{deebaChaudri.displayValues.fiveStarPercentage}</strong><span>Five-star ratings</span></article></div><blockquote>“{deebaReview.approvedExcerpt}”<cite>— {deebaReview.patientDisplayName} · Verified patient · Zocdoc · {deebaReview.sourceDate}</cite></blockquote><div className="doctor-feedback-links"><Link href="/meet-the-doctors">Meet the doctors <span aria-hidden="true">→</span></Link><a href={deebaChaudri.sourceUrl} target="_blank" rel="noopener noreferrer">Dr. Chaudri on Zocdoc <span aria-hidden="true">↗</span></a></div><p className="doctor-feedback-note">These figures apply to Dr. Chaudri’s individual Zocdoc profile.</p></div></div></section> : null}
     <section className="review-note"><p className="section-label">HOW THESE PATIENT EXPERIENCES WERE SELECTED</p><div><h2>Real experiences, shared thoughtfully.</h2><p>These excerpts come from publicly available patient reviews associated with Cosmopolitan Eyecare or an identified practice doctor. Reviewer display names are preserved, and the source platform is identified.</p><p>Some excerpts may be shortened for clarity or length without changing their meaning. Ratings and review totals are checked periodically and may change as new reviews are published.</p><ul><li>Public sources</li><li>Reviewer display names preserved</li><li>Shortened excerpts disclosed</li><li>Ratings checked periodically</li></ul></div></section>
     <section className="review-sources"><p className="section-label">READ MORE PATIENT FEEDBACK</p><div><a href={practice.sourceUrl} target="_blank" rel="noopener noreferrer">Cosmopolitan Eyecare on Zocdoc <span aria-hidden="true">↗</span></a><a href={google.sourceUrl} target="_blank" rel="noopener noreferrer">Cosmopolitan Eyecare on Google <span aria-hidden="true">↗</span></a><a href={deebaChaudri.sourceUrl} target="_blank" rel="noopener noreferrer">Dr. Deeba Chaudri on Zocdoc <span aria-hidden="true">↗</span></a></div><p>Patient experiences vary. Reviews describe individual experiences and are not a guarantee of treatment results. Medical recommendations depend on each patient’s symptoms, examination findings, health history, and clinical needs.</p></section>
   </>;
