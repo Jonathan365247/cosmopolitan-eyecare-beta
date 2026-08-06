@@ -23,8 +23,8 @@ export function HeroVideo() {
     <video ref={videoRef} className="hero-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
       <source src="/approved-assets/cosmopolitan-manhattan-hero.mp4" type="video/mp4" />
     </video>
-    <button className="hero-motion-toggle" type="button" onClick={togglePlayback} aria-pressed={isPaused}>
-      {isPaused ? "Play background video" : "Pause background video"}
+    <button className="hero-motion-toggle" type="button" onClick={togglePlayback} aria-pressed={isPaused} aria-label={isPaused ? "Play background video" : "Pause background video"}>
+      <span aria-hidden="true">{isPaused ? "▶" : "Ⅱ"}</span>
     </button>
   </>;
 }
