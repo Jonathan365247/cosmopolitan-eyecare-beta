@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { permanentRedirect } from "next/navigation";
 import { InnerFooter, InnerHeader } from "../../../components/InnerChrome";
 import { FaqSection } from "../../../components/FaqSection";
+import { siteUrl } from "../../../lib/site-config";
 
 const services = [
   "Comprehensive eye exams", "Myopia management", "Computer vision", "Seasonal allergies", "Dry eye treatment", "OptiLight IPL", "Perimenopause and menopause dry eye", "Contact lens exams", "Specialty contact lenses", "Scleral contact lenses", "Eye infections", "Ocular disease management", "Diabetic-related eye exams", "Common eye disorders", "Eye emergencies", "LASIK evaluations", "Cataracts", "Macular degeneration", "Glaucoma", "Ocular aesthetics",
 ] as const;
 
 const slug = (name: string) => name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const primarySpecialtyRoutes: Record<string, string> = {
+  "dry-eye-treatment": "/dry-eye",
+  "specialty-contact-lenses": "/specialty-contact-lenses",
+  "ocular-aesthetics": "/aesthetics",
+};
 
 const serviceContent: Record<(typeof services)[number], { lede: string; heading: string; detail: string }> = {
   "Comprehensive eye exams": { lede: "A thorough eye exam creates space to talk about vision, comfort, eye health, and the changes you have noticed.", heading: "A clear view of the full picture.", detail: "Your visit can address prescription needs alongside the broader questions that help guide preventive eye care." },
@@ -62,15 +69,16 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   const { service } = await params;
   const matchedService = services.find((item) => slug(item) === service);
   const name = matchedService ?? "Care";
-  return { title: `${name} | Cosmopolitan Eyecare`, description: matchedService ? serviceContent[matchedService].lede : `Learn about ${name} at Cosmopolitan Eyecare in Midtown Manhattan.`, robots: { index: false, follow: false } };
+  return { title: `${name} | Cosmopolitan Eyecare`, description: matchedService ? serviceContent[matchedService].lede : `Learn about ${name} at Cosmopolitan Eyecare in Midtown Manhattan.` };
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) {
   const { service } = await params;
+  if (primarySpecialtyRoutes[service]) permanentRedirect(primarySpecialtyRoutes[service]);
   const name = services.find((item) => slug(item) === service);
   if (!name) return null;
   const content = serviceContent[name];
   const guide = serviceGuidance[name];
-  const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name, description: content.lede, serviceType: name, provider: { "@id": "https://www.cosmopolitaneyecare.com/#practice" }, areaServed: { "@type": "City", name: "New York" } };
+  const serviceSchema = { "@context": "https://schema.org", "@type": "Service", name, description: content.lede, serviceType: name, provider: { "@id": `${siteUrl}/#practice` }, areaServed: { "@type": "City", name: "New York" } };
   return <><InnerHeader /><main id="main-content" className="detail-page service-page"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} /><section className="service-hero"><Link href="/services" className="back-link">← All services</Link><p className="kicker">COSMOPOLITAN EYECARE · SERVICE GUIDE</p><h1>{name}</h1><p className="detail-lede">{content.lede}</p><div className="service-hero-mark" aria-hidden="true"><span>CE</span><i /></div></section><section className="detail-band"><p className="section-label">WHAT TO EXPECT</p><div><h2>{content.heading}</h2><p>{content.detail}</p></div></section><section className="visit-context"><p className="section-label">PLAN YOUR VISIT</p><div><article><h2>Who this is for</h2><p>{guide.rightFor}</p></article><article><h2>How to prepare</h2><p>{guide.prepare}</p></article><article><h2>Related care</h2><p>{guide.related.map(([label, href]) => <Link href={href} key={href}>{label} <span>→</span></Link>)}</p></article></div></section><section className="service-promises"><article><span>01</span><h3>Personal attention</h3><p>Start with the details that matter to you—not a one-size-fits-all script.</p></article><article><span>02</span><h3>Clear information</h3><p>Understand your options and the purpose of your next step.</p></article><article><span>03</span><h3>Connected care</h3><p>Move easily between related services, resources, and the team.</p></article></section><section className="steps"><p className="section-label">YOUR NEXT STEP</p><ol><li><span>01</span><div><h3>Start with your concerns</h3><p>Share what is affecting your vision, comfort, or eye health.</p></div></li><li><span>02</span><div><h3>Talk with the care team</h3><p>Find the right appointment or consultation path for your needs.</p></div></li><li><span>03</span><div><h3>Make an informed plan</h3><p>Receive guidance tailored to your individual care goals.</p></div></li></ol></section><FaqSection items={[{ question: `What should I expect from a ${name.toLowerCase()} visit?`, answer: `${content.detail} Individual recommendations depend on your eye health, symptoms, and goals.` }, { question: "How do I know which appointment to book?", answer: "Contact the practice and share what you are experiencing. The team can help guide you to the most appropriate appointment type." }, { question: "Is this page medical advice?", answer: "No. Information on this site is educational only and does not replace a personal evaluation by an eye-care professional." }]} /><Link href="/contact" className="service-contact">Contact Cosmopolitan Eyecare <span>→</span></Link></main><InnerFooter /></>;
 }

@@ -1,12 +1,14 @@
+import { siteUrl } from "../lib/site-config";
+
 const practiceSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "MedicalBusiness",
-      "@id": "https://www.cosmopolitaneyecare.com/#practice",
+      "@id": `${siteUrl}/#practice`,
       name: "Cosmopolitan Eyecare",
       medicalSpecialty: "Optometric",
-      url: "https://www.cosmopolitaneyecare.com/",
+      url: `${siteUrl}/`,
       telephone: "+1-212-302-4889",
       faxNumber: "+1-212-504-8257",
       address: {
@@ -32,10 +34,10 @@ const practiceSchema = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.cosmopolitaneyecare.com/#website",
-      url: "https://www.cosmopolitaneyecare.com/",
+      "@id": `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
       name: "Cosmopolitan Eyecare",
-      publisher: { "@id": "https://www.cosmopolitaneyecare.com/#practice" },
+      publisher: { "@id": `${siteUrl}/#practice` },
       inLanguage: "en-US",
     },
   ],

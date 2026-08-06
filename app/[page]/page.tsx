@@ -95,7 +95,7 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ page: keyof typeof pages }> }): Promise<Metadata> {
   const { page } = await params;
-  return { title: `${pages[page].eyebrow} | Cosmopolitan Eyecare`, description: pages[page].lede, robots: { index: false, follow: false } };
+  return { title: `${pages[page].eyebrow} | Cosmopolitan Eyecare`, description: pages[page].lede };
 }
 
 export default async function CorePage({ params }: { params: Promise<{ page: keyof typeof pages }> }) {
