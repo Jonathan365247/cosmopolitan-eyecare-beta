@@ -2,19 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { SocialIconLinks } from "./SocialIconLinks";
 
-const careLinks = [
-  ["Eye exams", "/care/comprehensive-eye-exams"],
-  ["Dry eye treatment", "/dry-eye"],
-  ["Dry Eye Quiz", "/dry-eye-quiz"],
-  ["OptiLight IPL", "/care/optilight-ipl"],
-  ["Specialty contact lenses", "/specialty-contact-lenses"],
-  ["Scleral lenses", "/care/scleral-contact-lenses"],
-  ["Myopia management", "/care/myopia-management"],
-  ["Medical eye care", "/care/ocular-disease-management"],
-  ["LASIK evaluations", "/care/lasik-evaluations"],
-  ["Ocular aesthetics", "/aesthetics"],
-] as const;
-
 const primaryCareLinks = [
   ["Comprehensive eye exams", "/care/comprehensive-eye-exams"],
   ["Medical eye care", "/care/ocular-disease-management"],
@@ -106,25 +93,17 @@ export function InnerFooter() {
       </div>
       <div>
         <p className="footer-label">Explore</p>
-        <Link href="/our-practice">Our practice</Link>
         <Link href="/meet-the-doctors">Meet the doctors</Link>
-        <Link href="/testimonials">Patient stories</Link>
         <Link href="/services">All services</Link>
-        <Link href="/eye-health">Eye health resources</Link>
         <Link href="/patient-resources">Patient center</Link>
         <Link href="/contact">Contact & visit</Link>
       </div>
       <div>
         <p className="footer-label">Specialty care</p>
         <Link href="/dry-eye">Dry Eye Center</Link>
-        <Link href="/care/optilight-ipl">OptiLight IPL</Link>
-        <Link href="/aesthetics">Ocular aesthetics</Link>
         <Link href="/specialty-contact-lenses">Specialty contact lenses</Link>
-        <Link href="/care/scleral-contact-lenses">Scleral contact lenses</Link>
-      </div>
-      <div>
-        <p className="footer-label">Eye care services</p>
-        {careLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
+        <Link href="/care/myopia-management">Myopia management</Link>
+        <Link href="/eye-health">Eye health resources</Link>
       </div>
       <div>
         <p className="footer-label">Visit</p>
