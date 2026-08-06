@@ -78,19 +78,18 @@ const patientTools = [
   { title: "Insurance & payments", description: "Review current payment options and how vision insurance differs from medical insurance.", href: "https://www.cosmopolitaneyecare.com/payment-options.html", external: true },
   { title: "Doctor referrals", description: "Use the current referral destination for referring providers and patients.", href: "https://www.cosmopolitaneyecare.com/doctor-referrals.html", external: true },
 ] as const;
+const testimonials = [
+  { quote: "The doctors are very personable and understanding. They take their time evaluating your condition.", name: "Asia Aziz" },
+  { quote: "Dr. Chan went above and beyond to be informative and detailed with my fitting.", name: "Yiwa ‘Kiwi’ Wang" },
+  { quote: "Dr. Chaudri was friendly, thorough, informative and took time to answer all my questions.", name: "Mark Wuillamey" },
+] as const;
 const pageAccents: Partial<Record<keyof typeof pages, { word: string }>> = {
   "our-practice": { word: "Perspective" },
   "meet-the-doctors": { word: "Expertise" },
   "patient-resources": { word: "Clarity" },
   contact: { word: "Midtown" },
 };
-const testimonials = [
-  { quote: "The doctors are very personable and understanding. They take their time evaluating your condition.", name: "Asia Aziz", source: "Google review" },
-  { quote: "Dr. Chan went above and beyond to be informative and detailed with my fitting.", name: "Yiwa ‘Kiwi’ Wang", source: "Google review" },
-  { quote: "Dr. Chaudri was friendly, thorough, informative and took time to answer all my questions.", name: "Mark Wuillamey", source: "Google review" },
-] as const;
-
-export function generateStaticParams() { return Object.keys(pages).filter((page) => page !== "contact").map((page) => ({ page })); }
+export function generateStaticParams() { return Object.keys(pages).filter((page) => page !== "contact" && page !== "testimonials").map((page) => ({ page })); }
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ page: keyof typeof pages }> }): Promise<Metadata> {
