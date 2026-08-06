@@ -39,7 +39,7 @@ export default function ContactPage() {
             <a className="contact-action contact-action-primary" href={bookingUrl} target="_blank" rel="noreferrer">
               <span>01</span><strong>Book an appointment</strong><p>Choose a convenient time online.</p><b aria-hidden="true">↗</b>
             </a>
-            <a className="contact-action" href="tel:+12123024889">
+            <a className="contact-action contact-action-call" href="tel:+12123024889">
               <span>02</span><strong>Call the practice</strong><p>(212) 302-4889</p><b aria-hidden="true">→</b>
             </a>
             <a className="contact-action" href={mapsUrl} target="_blank" rel="noreferrer">
