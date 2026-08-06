@@ -1,0 +1,27 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { InnerFooter, InnerHeader } from "../../components/InnerChrome";
+
+export const metadata: Metadata = {
+  title: "Dry Eye Quiz | Cosmopolitan Eyecare",
+  description: "Take Cosmopolitan Eyecare's Dry Eye Quiz.",
+  robots: { index: false, follow: false },
+};
+
+export default function DryEyeQuizPage() {
+  return <>
+    <InnerHeader />
+    <main id="main-content" className="detail-page quiz-page">
+      <section className="quiz-intro">
+        <Link href="/dry-eye" className="back-link">← Dry Eye Center</Link>
+        <p className="kicker">DRY EYE QUIZ</p>
+        <h1>Start with what your eyes are <em>telling you.</em></h1>
+        <p className="detail-lede">This is Cosmopolitan Eyecare&apos;s current approved Dry Eye Quiz, presented here so you can begin without leaving the beta site.</p>
+      </section>
+      <section className="quiz-frame" aria-label="Cosmopolitan Eyecare Dry Eye Quiz">
+        <iframe src="https://uexv7fq5lfc.typeform.com/to/K2A1tFfR" title="Cosmopolitan Eyecare Dry Eye Quiz" loading="lazy" />
+      </section>
+    </main>
+    <InnerFooter />
+  </>;
+}
