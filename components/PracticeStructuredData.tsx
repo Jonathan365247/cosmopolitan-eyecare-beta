@@ -4,10 +4,10 @@ const practiceSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "MedicalBusiness",
+      "@type": "MedicalClinic",
       "@id": `${siteUrl}/#practice`,
       name: "Cosmopolitan Eyecare",
-      medicalSpecialty: "Optometric",
+      medicalSpecialty: "https://schema.org/Optometric",
       url: `${siteUrl}/`,
       telephone: "+1-212-302-4889",
       sameAs: [
