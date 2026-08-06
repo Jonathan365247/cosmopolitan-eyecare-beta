@@ -60,6 +60,7 @@ export function InnerHeader() {
           </div>
         </details>
         <Link href="/eye-health">Resources</Link>
+        <a href="https://www.cosmopolitaneyecare.com/blog.html" target="_blank" rel="noreferrer">Blog ↗</a>
         <Link href="/patient-resources">Patient center</Link>
         <Link href="/contact">Contact</Link>
       </nav>
@@ -74,6 +75,7 @@ export function InnerHeader() {
           <p className="mobile-menu-label">Specialty care</p>
           {specialtyLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
           <Link href="/eye-health">Eye health resources</Link>
+          <a href="https://www.cosmopolitaneyecare.com/blog.html" target="_blank" rel="noreferrer">Blog &amp; articles ↗</a>
           <Link href="/patient-resources">Patient center</Link>
           <Link href="/contact">Contact & visit</Link>
           <a href={bookingUrl} target="_blank" rel="noreferrer">Book an appointment ↗</a>
