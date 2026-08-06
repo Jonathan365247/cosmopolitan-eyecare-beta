@@ -22,7 +22,7 @@ export const socialProof = {
     displayValues: { reviewCount: "250+", rating: "4.6 / 5" },
   },
   deebaChaudri: {
-    enabled: false,
+    enabled: true,
     scope: "individual-provider-only",
     sourceName: "Zocdoc",
     sourceUrl: "https://www.zocdoc.com/doctor/deeba-chaudri-od-337990",
