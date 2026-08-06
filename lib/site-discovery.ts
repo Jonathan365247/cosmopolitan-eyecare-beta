@@ -70,8 +70,7 @@ function assertProductionDiscoveryConfiguration() {
 }
 
 export function getProductionSitemap(): MetadataRoute.Sitemap {
-  if (!isIndexable) return [];
-  assertProductionDiscoveryConfiguration();
+  if (isIndexable) assertProductionDiscoveryConfiguration();
 
   return pages.map(({ path, priority }) => ({
     url: productionUrl(path),

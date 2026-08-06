@@ -2,7 +2,7 @@
 
 ## Current beta state
 
-This repository is a protected, non-indexable beta. Until an approved final canonical domain is set, the application deliberately serves a `Disallow: /` robots policy, an empty sitemap, and no `llms.txt` document. Preview URLs and local URLs must never be published as canonical discovery URLs.
+This repository is a protected, non-indexable beta. Until an approved final canonical domain is set, the application deliberately serves a `Disallow: /` robots policy and noindex metadata. Its sitemap and `llms.txt` are intentionally complete so review tools can validate the real information architecture, but the beta robots file does not advertise the sitemap and the beta URL must never be published as a production canonical.
 
 ## Production release gate
 
