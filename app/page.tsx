@@ -43,7 +43,7 @@ export default function HomePage() {
       </section>
 
       <section id="practice" className="practice-credibility section-pad">
-        <div className="practice-credibility-copy"><p className="section-label">MORE TIME. CLEARER ANSWERS.</p><h2>Advanced eye care, with <em>time to be heard.</em></h2><p>From comprehensive eye exams to complex dry eye and specialty lens care, our doctors take a thorough, personal approach to every visit. We combine modern diagnostics with clear explanations and recommendations shaped around your daily life.</p><Link className="practice-credibility-link" href="/meet-the-doctors">Meet our doctors <span>→</span></Link></div>
+        <div className="practice-credibility-copy"><p className="section-label">MORE TIME. CLEARER ANSWERS.</p><h2>Advanced eye care, with <em>time to be heard.</em></h2><p>From comprehensive eye exams to complex dry eye and specialty lens care, our doctors take a thorough, personal approach to every visit. We combine modern diagnostics with clear explanations and recommendations shaped around your daily life.</p></div>
         <SocialProofPanel />
       </section>
 
