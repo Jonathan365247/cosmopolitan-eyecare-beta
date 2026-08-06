@@ -21,6 +21,24 @@ export type HomepageContent = {
   heroTitle?: string;
   heroEmphasis?: string;
   heroLede?: string;
+  practiceEyebrow?: string;
+  practiceTitle?: string;
+  practiceEmphasis?: string;
+  practiceBody?: string;
+  careEyebrow?: string;
+  careTitle?: string;
+  careEmphasis?: string;
+  careBody?: string;
+  proofEyebrow?: string;
+  proofTitle?: string;
+  proofEmphasis?: string;
+  proofBody?: string;
+  visitEyebrow?: string;
+  visitDescription?: string;
+  reviewsEyebrow?: string;
+  reviewsTitle?: string;
+  reviewsEmphasis?: string;
+  reviewsBody?: string;
 };
 
 export async function getHomepageContent(): Promise<HomepageContent | null> {
@@ -28,7 +46,7 @@ export async function getHomepageContent(): Promise<HomepageContent | null> {
 
   try {
     return await sanityClient.fetch<HomepageContent | null>(
-      `*[_type == "siteSettings" && _id == "siteSettings"][0]{heroEyebrow, heroTitle, heroEmphasis, heroLede}`,
+      `*[_type == "siteSettings" && _id == "siteSettings"][0]{heroEyebrow, heroTitle, heroEmphasis, heroLede, practiceEyebrow, practiceTitle, practiceEmphasis, practiceBody, careEyebrow, careTitle, careEmphasis, careBody, proofEyebrow, proofTitle, proofEmphasis, proofBody, visitEyebrow, visitDescription, reviewsEyebrow, reviewsTitle, reviewsEmphasis, reviewsBody}`,
       {},
       { next: { revalidate: 60, tags: ["siteSettings"] } },
     );
