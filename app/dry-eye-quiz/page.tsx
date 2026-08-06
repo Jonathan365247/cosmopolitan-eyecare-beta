@@ -5,7 +5,6 @@ import { InnerFooter, InnerHeader } from "../../components/InnerChrome";
 export const metadata: Metadata = {
   title: "Dry Eye Quiz | Cosmopolitan Eyecare",
   description: "Take Cosmopolitan Eyecare's Dry Eye Quiz.",
-  robots: { index: false, follow: false },
 };
 
 export default function DryEyeQuizPage() {

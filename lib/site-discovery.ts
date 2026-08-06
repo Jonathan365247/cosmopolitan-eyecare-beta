@@ -7,38 +7,40 @@ type PageDefinition = {
   description: string;
   priority: number;
   includeInLlms: boolean;
+  section: "primary-business" | "services" | "trust-education";
 };
 
 const pages: PageDefinition[] = [
-  { path: "/", title: "Home", description: "Cosmopolitan Eyecare's Midtown Manhattan optometry practice.", priority: 1, includeInLlms: true },
-  { path: "/our-practice", title: "Our practice", description: "Practice approach, location, and patient experience.", priority: 0.8, includeInLlms: true },
-  { path: "/meet-the-doctors", title: "Meet the doctors", description: "Information about the practice's eye-care clinicians.", priority: 0.8, includeInLlms: true },
-  { path: "/services", title: "Eye care services", description: "Overview of the practice's optometry and eye-care services.", priority: 0.9, includeInLlms: true },
-  { path: "/dry-eye", title: "Dry Eye Center", description: "Dry-eye evaluation and treatment information.", priority: 0.8, includeInLlms: true },
-  { path: "/aesthetics", title: "Ocular aesthetics", description: "Ocular aesthetics information.", priority: 0.7, includeInLlms: true },
-  { path: "/specialty-contact-lenses", title: "Specialty contact lenses", description: "Specialty contact-lens services and education.", priority: 0.8, includeInLlms: true },
-  { path: "/patient-resources", title: "Patient resources", description: "Patient resources and visit preparation.", priority: 0.7, includeInLlms: false },
-  { path: "/contact", title: "Contact and visit", description: "Contact details and visit information.", priority: 0.8, includeInLlms: true },
-  { path: "/testimonials", title: "Testimonials", description: "Patient testimonials about their experience.", priority: 0.7, includeInLlms: true },
-  { path: "/eye-health", title: "Eye health resources", description: "General eye-health educational resources.", priority: 0.8, includeInLlms: true },
-  { path: "/accessibility", title: "Accessibility", description: "Accessibility information for the website.", priority: 0.5, includeInLlms: false },
-  { path: "/care/comprehensive-eye-exams", title: "Comprehensive eye exams", description: "Comprehensive eye-exam service information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/myopia-management", title: "Myopia management", description: "Myopia-management service information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/computer-vision", title: "Computer vision", description: "Computer-vision care information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/seasonal-allergies", title: "Seasonal allergies", description: "Seasonal eye-allergy care information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/optilight-ipl", title: "OptiLight IPL", description: "OptiLight IPL service information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/perimenopause-and-menopause-dry-eye", title: "Perimenopause and menopause dry eye", description: "Dry-eye education related to perimenopause and menopause.", priority: 0.7, includeInLlms: false },
-  { path: "/care/contact-lens-exams", title: "Contact lens exams", description: "Contact-lens exam service information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/scleral-contact-lenses", title: "Scleral contact lenses", description: "Scleral contact-lens service information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/eye-infections", title: "Eye infections", description: "Eye-infection care information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/ocular-disease-management", title: "Ocular disease management", description: "Ocular-disease management information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/diabetic-related-eye-exams", title: "Diabetic-related eye exams", description: "Diabetic-related eye-exam information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/common-eye-disorders", title: "Common eye disorders", description: "General educational information about common eye disorders.", priority: 0.7, includeInLlms: false },
-  { path: "/care/eye-emergencies", title: "Eye emergencies", description: "Eye-emergency care information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/lasik-evaluations", title: "LASIK evaluations", description: "LASIK evaluation information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/cataracts", title: "Cataracts", description: "Cataract care information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/macular-degeneration", title: "Macular degeneration", description: "Macular-degeneration care information.", priority: 0.7, includeInLlms: false },
-  { path: "/care/glaucoma", title: "Glaucoma", description: "Glaucoma care information.", priority: 0.7, includeInLlms: false },
+  { path: "/", title: "Home", description: "Midtown Manhattan eye care, including comprehensive exams, dry eye treatment, specialty contact lenses, and ocular aesthetics.", priority: 1, includeInLlms: true, section: "primary-business" },
+  { path: "/our-practice", title: "About Cosmopolitan Eyecare", description: "The office approach, Midtown location, and what patients can expect from a visit.", priority: 0.8, includeInLlms: true, section: "primary-business" },
+  { path: "/meet-the-doctors", title: "Meet the doctors", description: "Cosmopolitan Eyecare's optometrists and their patient-care approach.", priority: 0.8, includeInLlms: true, section: "primary-business" },
+  { path: "/services", title: "Eye care services", description: "A complete guide to routine, medical, specialty, and treatment-focused eye care.", priority: 0.9, includeInLlms: true, section: "primary-business" },
+  { path: "/contact", title: "Contact and visit", description: "How to call, book an appointment, find the Midtown office, and get directions.", priority: 0.8, includeInLlms: true, section: "primary-business" },
+  { path: "/dry-eye", title: "Dry Eye Center", description: "Dry eye symptoms, diagnostic evaluation, treatment options, and the Dry Eye Quiz.", priority: 0.8, includeInLlms: true, section: "services" },
+  { path: "/dry-eye-quiz", title: "Dry Eye Quiz", description: "A short symptom questionnaire that helps visitors begin a dry-eye consultation conversation.", priority: 0.6, includeInLlms: true, section: "services" },
+  { path: "/aesthetics", title: "Ocular aesthetics", description: "Aesthetic treatments focused on the eye area and an individualized consultation process.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/specialty-contact-lenses", title: "Specialty contact lenses", description: "Specialty lens evaluation, fitting, scleral lenses, and contact-lens education.", priority: 0.8, includeInLlms: true, section: "services" },
+  { path: "/care/comprehensive-eye-exams", title: "Comprehensive eye exams", description: "Preventive eye exams, vision assessment, eye-health screening, and care planning.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/myopia-management", title: "Myopia management", description: "Myopia progression monitoring and management options for children and adults.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/computer-vision", title: "Computer vision", description: "Care for screen-related visual symptoms, digital-eye strain, and workday comfort.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/seasonal-allergies", title: "Seasonal allergies", description: "Evaluation and treatment guidance for itchy, watery, irritated, or allergy-related eyes.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/optilight-ipl", title: "OptiLight IPL", description: "OptiLight IPL information for dry-eye care and a consultation-focused next step.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/perimenopause-and-menopause-dry-eye", title: "Perimenopause and menopause dry eye", description: "Dry-eye education for patients navigating perimenopause and menopause-related changes.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/contact-lens-exams", title: "Contact lens exams", description: "Contact-lens eye exams, prescription updates, fit checks, and comfort-focused care.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/scleral-contact-lenses", title: "Scleral contact lenses", description: "Scleral lens consultations, fitting, follow-up care, and patient education.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/eye-infections", title: "Eye infections", description: "Information about eye-infection symptoms, timely evaluation, and when to seek care.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/ocular-disease-management", title: "Ocular disease management", description: "Evaluation and ongoing management for diagnosed and suspected eye-health conditions.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/diabetic-related-eye-exams", title: "Diabetic-related eye exams", description: "Diabetic eye-exam education, monitoring, and eye-health coordination.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/common-eye-disorders", title: "Common eye disorders", description: "Plain-language information about common eye conditions and when an exam is appropriate.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/eye-emergencies", title: "Eye emergencies", description: "Eye-emergency warning signs and guidance on seeking urgent evaluation.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/lasik-evaluations", title: "LASIK evaluations", description: "LASIK candidacy evaluation and pre- or post-procedure eye-care guidance.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/cataracts", title: "Cataracts", description: "Cataract symptoms, monitoring, and eye-care guidance before and after referral.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/macular-degeneration", title: "Macular degeneration", description: "Macular-degeneration education, monitoring, and guidance on next steps.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/care/glaucoma", title: "Glaucoma", description: "Glaucoma education, screening, monitoring, and ongoing eye-health guidance.", priority: 0.7, includeInLlms: true, section: "services" },
+  { path: "/patient-resources", title: "Patient resources", description: "Appointment preparation, patient forms, portal access, referrals, and payment resources.", priority: 0.7, includeInLlms: true, section: "trust-education" },
+  { path: "/testimonials", title: "Patient experiences", description: "Verified patient feedback and themes patients share about their visits and care.", priority: 0.7, includeInLlms: true, section: "trust-education" },
+  { path: "/eye-health", title: "Eye health resources", description: "Educational articles about eye health, contact lenses, technology, products, and common conditions.", priority: 0.8, includeInLlms: true, section: "trust-education" },
+  { path: "/accessibility", title: "Accessibility", description: "Accessibility information for the website.", priority: 0.5, includeInLlms: false, section: "trust-education" },
 ];
 
 const blockedPaths = ["/studio/"];
@@ -47,11 +49,23 @@ function productionUrl(path: string) {
   return new URL(path, `${siteUrl}/`).toString();
 }
 
-function pageListFor(baseUrl: string, includeAllPages = false) {
-  return pages
-    .filter(({ includeInLlms }) => includeAllPages || includeInLlms)
-    .map(({ path, title, description }) => `- [${title}](${new URL(path, `${baseUrl}/`).toString()}): ${description}`)
-    .join("\n");
+const llmsSections = [
+  ["primary-business", "Primary Business Pages"],
+  ["services", "Primary Services"],
+  ["trust-education", "Supporting Trust and Education Pages"],
+] as const;
+
+function curatedPageListsFor(baseUrl: string) {
+  return llmsSections
+    .map(([section, heading]) => {
+      const entries = pages
+        .filter((page) => page.includeInLlms && page.section === section)
+        .map(({ path, title, description }) => `- [${title}](${new URL(path, `${baseUrl}/`).toString()}): ${description}`)
+        .join("\n");
+      return entries ? `## ${heading}\n${entries}` : "";
+    })
+    .filter(Boolean)
+    .join("\n\n");
 }
 
 function assertProductionDiscoveryConfiguration() {
@@ -83,7 +97,8 @@ export function getProductionRobots(): MetadataRoute.Robots {
   assertProductionDiscoveryConfiguration();
 
   return {
-    // One verified catch-all policy is safer than unverified crawler-specific rules.
+    // A single catch-all rule makes the public production site AI-permissive
+    // without scattering unverified crawler-specific user-agent policies.
     rules: { userAgent: "*", allow: "/", disallow: blockedPaths },
     sitemap: productionUrl("/sitemap.xml"),
   };
@@ -91,25 +106,35 @@ export function getProductionRobots(): MetadataRoute.Robots {
 
 export function getProductionLlmsText() {
   assertProductionDiscoveryConfiguration();
-  const pageList = pageListFor(siteUrl);
+  const pageLists = curatedPageListsFor(siteUrl);
 
-  return `# Cosmopolitan Eyecare
+  return `# Priority Site Guidance
 
-> Cosmopolitan Eyecare is a Midtown Manhattan optometry practice. This file is a curated guide to public, production pages; it is not a sitemap or a source of individualized medical advice.
+Cosmopolitan Eyecare is a Midtown Manhattan eye-care clinic serving New York City patients. The website is the primary online source for understanding the organization, its doctors, core services, patient resources, educational content, and verified patient-experience context.
 
-## Practice
-- **Name:** Cosmopolitan Eyecare
-- **Type:** Optometry practice
+Primary care areas include:
+
+- Comprehensive eye exams and medical eye care
+- Dry eye evaluation and treatment, including OptiLight IPL information
+- Specialty contact lenses and scleral lens care
+- Myopia management, contact lens exams, and computer vision care
+- Ocular aesthetics
+
+## Entity Context
+- **Organization:** Cosmopolitan Eyecare
+- **Business type:** Eye-care clinic and optometry practice
 - **Location:** 1166 Avenue of the Americas, New York, NY 10036
+- **Service area:** Midtown Manhattan and the greater New York City area
 - **Phone:** +1-212-302-4889
 - **Website:** ${productionUrl("/")}
 
-## Priority pages
-${pageList}
+${pageLists}
 
-## Interpretation notes
+## Content Interpretation Notes
 - Eye-health and service content is general education and does not replace personal medical advice, diagnosis, or emergency care.
-- Testimonials describe individual patient experiences and should not be treated as clinical claims or expected outcomes.
+- Testimonials and review summaries are patient trust signals; they describe individual experiences and are not clinical claims or expected outcomes.
+- The Dry Eye Quiz is an appointment-guidance tool, not a diagnostic instrument or substitute for an eye examination.
+- The eye-health resource library provides educational support and is not a complete list of services or a substitute for professional care.
 - For urgent eye concerns, contact the practice promptly. For a life-threatening emergency, call 911.
 `;
 }
@@ -119,26 +144,37 @@ ${pageList}
  * making the preview indexable. Robots and HTTP metadata remain noindex.
  */
 export function getBetaLlmsText() {
-  const pageList = pageListFor(siteUrl, true);
+  const pageLists = curatedPageListsFor(siteUrl);
 
-  return `# Cosmopolitan Eyecare — Review Beta
+  return `# Priority Site Guidance — Draft Review Environment
 
-> This is a private-review beta for Cosmopolitan Eyecare, a Midtown Manhattan optometry practice. It is deliberately blocked from indexing and must not be treated as the public launch site or a canonical source for search discovery.
+**Status:** Draft only. This review environment is deliberately blocked from indexing. It reflects the current approved content structure but is not the final public domain or canonical discovery source.
 
-## Practice
-- **Name:** Cosmopolitan Eyecare
-- **Type:** Optometry practice
+Cosmopolitan Eyecare is a Midtown Manhattan eye-care clinic serving New York City patients. The site explains the organization, its doctors, core services, patient resources, educational content, and patient-experience context.
+
+Primary care areas include:
+
+- Comprehensive eye exams and medical eye care
+- Dry eye evaluation and treatment, including OptiLight IPL information
+- Specialty contact lenses and scleral lens care
+- Myopia management, contact lens exams, and computer vision care
+- Ocular aesthetics
+
+## Entity Context
+- **Organization:** Cosmopolitan Eyecare
+- **Business type:** Eye-care clinic and optometry practice
 - **Location:** 1166 Avenue of the Americas, New York, NY 10036
+- **Service area:** Midtown Manhattan and the greater New York City area
 - **Phone:** +1-212-302-4889
 - **Review site:** ${productionUrl("/")}
 
-## Review-page inventory
-${pageList}
+${pageLists}
 
-## Reading notes
-- The care and eye-health pages provide general education; they do not replace individual medical advice, diagnosis, or emergency care.
-- Testimonials describe individual experiences and are not clinical claims or guarantees of outcome.
-- This beta preserves noindex controls while allowing direct review of its information architecture, content, and structured-data implementation.
-- Do not cite this preview URL as the public practice website. The final production domain and launch metadata will be supplied at launch.
+## Content Interpretation Notes
+- Eye-health and service content is general education and does not replace personal medical advice, diagnosis, or emergency care.
+- Testimonials and review summaries are patient trust signals; they describe individual experiences and are not clinical claims or expected outcomes.
+- The Dry Eye Quiz is an appointment-guidance tool, not a diagnostic instrument or substitute for an eye examination.
+- The eye-health resource library provides educational support and is not a complete list of services or a substitute for professional care.
+- Do not cite this review URL as the public website. The final production domain and launch metadata will be supplied at launch.
 `;
 }
