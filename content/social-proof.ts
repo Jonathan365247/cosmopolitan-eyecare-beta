@@ -25,6 +25,8 @@ export const socialProof = {
     enabled: false,
     scope: "individual-provider-only",
     sourceName: "Zocdoc",
+    sourceUrl: "https://www.zocdoc.com/doctor/deeba-chaudri-od-337990",
+    verifiedOn: "2026-08-05",
     underlyingValues: { reviewCount: 358, rating: 4.87, fiveStarPercentage: 95, underThirtyMinuteWaitPercentage: 92 },
     displayValues: { reviewCount: "350+", rating: "4.8+", fiveStarPercentage: "95%", underThirtyMinuteWaitPercentage: "92%" },
   },
